@@ -19,13 +19,33 @@ enable_y_neg = true;  // Front (-Y)
 enable_z_pos = true;  // Top (+Z)
 enable_z_neg = true;  // Bottom (-Z)
 
+// [Branch Param]
+// n edges
+n_edges = 5;
+size_edges = 10.0;
+extra_length = 5.0;
+
 
 /* [Hidden] */
 // Increase this number for smoother cylinders (e.g., 64 or 100)
 $fn = 50; 
 
-module branch(diameter=tube_diameter, length=branch_length) {
-    cylinder(d=diameter, h=length);
+function mk_vec (angle, length) = [
+    cos(angle)*length,
+    sin(angle)*length,
+    0.0
+];
+
+module branch() {
+    angle = 360.0/n_edges;
+    hull() {
+        for (i = [1: n_edges]) {
+            translate(mk_vec(i*angle, (tube_diameter - size_edges)/2)) 
+                cylinder(d=size_edges, h=branch_length-extra_length);
+        }
+
+        // translate([0.0,0.0,branch_length-extra_length]) sphere(d=extra_length);
+    };
 }
 
 module parametric_hub() {
