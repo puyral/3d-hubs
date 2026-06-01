@@ -3,7 +3,7 @@ include <BOSL2/std.scad>
 
 /* [Basics] */
 // Diameter of the tubes (in mm)
-tube_diameter = 20.0; 
+tube_diameter = 5.6; 
 // Length of each branch extending from the center (in mm, including the tip)
 branch_length = 45.0; 
 // Size of the central intersection block (in mm)
@@ -43,13 +43,13 @@ module branch() {
     angle = 360.0/n_edges;
     
     // intersection() {
-    union() {
-        for (i = [1: n_edges]) {
-            translate(mk_vec(i*angle, (tube_diameter - size_edges)/2)) 
-                cylinder(d=size_edges, h=branch_length, $fn=10);
-        }
-        cylinder(d=tube_diameter - size_edges/2, h=branch_length);
-    }
+    // union() {
+    //     for (i = [1: n_edges]) {
+    //         translate(mk_vec(i*angle, (tube_diameter - size_edges)/2)) 
+    //             cylinder(d=size_edges, h=branch_length, $fn=10);
+    //     }
+        cylinder(d=tube_diameter, h=branch_length);
+    // }
 }
 
 module boundingbox() {
