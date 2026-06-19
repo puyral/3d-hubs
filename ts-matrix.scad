@@ -3,11 +3,11 @@ include <BOSL2/std.scad>
 
 /* [Basics] */
 // Diameter of the tubes (in mm)
-tube_diameter = 5.75; 
+tube_diameter = 20.0; 
 // Length of each branch extending from the center (in mm, including the tip)
-branch_length = 20.0; 
+branch_length = 45.0; 
 // Size of the central intersection block (in mm)
-hub_diameter = 7.0;  
+hub_diameter = 24.0;  
 // Auto rotate for impression (also removes the bottom of the hub)
 auto_rotate = true;
 
