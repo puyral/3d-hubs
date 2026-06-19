@@ -1,0 +1,50 @@
+## Core LaTeX/TeX auxiliary files:
+*.aux
+*.lof
+*.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+.*.lb
+
+## Intermediate documents:
+*.dvi
+*.xdv
+*.pdf
+
+## Bibliography/Biber/BibTeX files:
+*.bbl
+*.bcf
+*.blg
+*-blx.aux
+*-blx.bib
+*.run.xml
+
+## Glossary/Index files:
+*.glo
+*.idx
+*.ilg
+*.ind
+*.ist
+*.glg
+*.gls
+*.glsdefs
+*.xdy
+
+## LateXmk:
+*.fdb_latexmk
+*.synctex
+*.synctex(busy)
+*.synctex.gz
+*.synctex.gz(busy)
+*.pdfsync
+
+## Backup/Temporary files:
+*~
+*.bak
+*.tmp

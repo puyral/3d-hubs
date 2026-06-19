@@ -1,0 +1,97 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% Math packages (amsmath is required for the 'align' environment)
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+% Layout and typography
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{microtype}
+\usepackage{hyperref, csquotes}
+
+\begin{document}
+
+  \noindent Longueur des tiges: $l$\\
+  longueur: $X=xl$\\
+  largeur: $Y=yl$\\
+  hauteur: $Z=zl$
+
+
+  \begin{align}
+    nbr_{\vec{x}} &= x\times y \times z\label{eq:1}\\
+    nbr_{\vec{y}} &= x\times y \times z\label{eq:2}\\
+    nbr_{\vec{z}} &= x\times y \times z\label{eq:3}\\
+    nrb &= nbr_{\vec{x}} + nbr_{\vec{y}} + nbr_{\vec{z}} = 3xyz
+  \end{align}
+  \eqref{eq:1}, \eqref{eq:2} et \eqref{eq:3} sont egaux par symmetrie. Deplus ils n'y a pas de colisions car chaque barre est sur un axe différent.
+
+  donc
+  \begin{equation}
+    nbr(l, X, Y, Z) \approx 3\frac{XYZ}{l^3}
+  \end{equation}
+  avec une égalité lorsque $X$, $Y$ et $Z$ sont \enquote{divisibles} par $l$.
+
+  Aussi la longueur total de tube nécessaire pour un meuble est:
+  \begin{equation}
+    \mathcal{L}\left(l, X, Y, Z\right)=nbr(l, X, Y, Z)\times l \approx 3\frac{XYZ}{l^2}
+  \end{equation}
+
+  Soit $r_i$ le rayon interieur des tubes et $r_e$ le rayon exterieur. Le volume d'un tube $v$ est
+  \begin{equation}
+    v=\left( r_e^2\pi - r_i^2\pi \right)l = \pi l\left( r_e^2 - r_i^2 \right)
+  \end{equation}
+
+  Soit $\rho$ la masse volumique de l'acier inoxidable. Un tube pèse $v\rho$. Donc le poid total du meuble est
+  \begin{equation}
+    pds = 3\frac{XYZ}{l^3}v\rho=3\frac{\pi\rho}{l^2}\left( r_e^2 - r_i^2 \right)XYZ
+  \end{equation}
+
+  Soit $L$ la longueur des tubes fournis et $\mathcal{L}_L$ le nombre de ces tubes:
+  \begin{equation}
+    \mathcal{L}_L = \frac{nbr\left( l, X, Y, Z \right)}{\left\lfloor \frac{L}{l} \right\rfloor}
+  \end{equation}
+
+  Le volume d'un long tube est
+  \begin{equation}
+    v_L=\pi L\left( r_e^2 - r_i^2 \right)
+  \end{equation}
+
+  Ce qui nous done un poid de commande de:
+  \begin{equation}
+    pds_L=\mathcal{L}_Lv_L\rho=3\frac{\pi\rho}{l^3\left\lfloor \frac{L}{l} \right\rfloor}\left( r_e^2 - r_i^2 \right)XYZ
+  \end{equation}
+
+  ensuite
+  \begin{equation}
+    pds_L \geq 3\frac{\pi\rho}{l^3\left(\frac{L}{l} + 1 \right)}\left( r_e^2 - r_i^2 \right)XYZ=3\frac{\pi\rho}{l^2\left(L - l \right)}\left( r_e^2 - r_i^2 \right)XYZ
+  \end{equation}
+  donc (puisque tout est positif)
+  \begin{equation}
+    l^2\left(L + l \right) \geq 3\frac{\pi\rho}{pds_L}\left( r_e^2 - r_i^2 \right)XYZ
+  \end{equation}
+
+  Selon Wolfram alpha
+  \begin{verbatim}
+    x^2 (80 cm (centimeters) - x)>=
+      3 pi*(8030 kg/m^3 (kilograms per cubic meter))/(10 kg (kilogram))
+         ((7 mm (millimeters))^2 - (5.8 mm (millimeters))^2)
+         *70 cm (centimeters)
+         *70 cm (centimeters)
+         *70 cm (centimeters)
+  \end{verbatim}
+  est 
+  \begin{verbatim}
+    x^2 (80 cm (centimeters) - x)>=0.04 m^2 (square meters)
+  \end{verbatim}
+  Ce qui nous done (en mètres)
+  \begin{verbatim}
+    0.276393<=x<=0.723607
+  \end{verbatim}
+
+\end{document}
