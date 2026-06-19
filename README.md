@@ -1,6 +1,8 @@
 # 🛠️ Comment créer vos fichiers d'impression 3D à partir des fichiers `.scad`
 (docuement généré par IA ✨)
 
+*NB*: Il est possible de téléchargé le contenu de ce répo `git` simplement en cliquant sur le gros bouton `code` vert.
+
 Ce guide simple vous explique comment transformer les fichiers de conception `.scad` présents dans ce dossier en fichiers `.stl` prêts à être envoyés à votre imprimante 3D.
 
 ---
